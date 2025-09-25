@@ -1,19 +1,18 @@
+
 // Importing the Random class
 import java.util.Random;
-// Specific error for the Try Catch
-import java.util.InputMismatchException;
 // Scanner for user input
 import java.util.Scanner;
 
 /**
-* Program that generates a random number,
-* and then asks the user to guess it.
-* The program will keep asking until the user gets it right.
-*
-* @author  Atri Sarker
-* @version 1.0
-* @since   2025-09-25
-*/
+ * Program that generates a random number,
+ * and then asks the user to guess it.
+ * The program will keep asking until the user gets it right.
+ *
+ * @author Atri Sarker
+ * @version 1.0
+ * @since 2025-09-25
+ */
 public final class DiceGame {
 
   /**
@@ -27,6 +26,7 @@ public final class DiceGame {
 
   /**
    * Private constructor to satisfy style checker.
+   *
    * @exception IllegalStateException for the utility class.
    * @see IllegalStateException
    */
@@ -37,6 +37,7 @@ public final class DiceGame {
 
   /**
    * Entrypoint of the program.
+   *
    * @param args UNUSED.
    */
   public static void main(final String[] args) {
@@ -53,9 +54,11 @@ public final class DiceGame {
       System.out.print("\033[0m");
       // Prompt for user's guess
       System.out.printf("Enter a guess [%d-%d]: ", MIN_NUM, MAX_NUM);
+      // Get user's input for the guess
+      String userInput = scanner.nextLine();
       try {
-        // Get user's guess as an integer
-        final int guess = scanner.nextInt();
+        // Convert user's input to an integer
+        final int guess = Integer.parseInt(userInput);
         if (guess < MIN_NUM || guess > MAX_NUM) {
           // Error if the user's guess is outside the valid range. [IN RED]
           System.out.println("\033[0;31mERROR: GUESS CAN'T BE OUTSIDE RANGE");
@@ -74,7 +77,7 @@ public final class DiceGame {
           // BREAK OUT OF THE LOOP
           break;
         }
-      } catch (InputMismatchException error) {
+      } catch (NumberFormatException error) {
         // Error message for non-numeric guess. [IN RED]
         System.out.println("\033[0;31mERROR: GUESS MUST BE AN INTEGER");
       }
