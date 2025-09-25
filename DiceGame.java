@@ -44,7 +44,7 @@ public final class DiceGame {
     // Create instance of Random class
     // It's for generating random numbers
     Random rand = new Random();
-    // Generate a random integer between MIN_NUM and MAX_NUM
+    // Generate a random integer between MIN_NUM and MAX_NUM [INCLUSIVE]
     int correctNum = rand.nextInt(1 + MAX_NUM - MIN_NUM) + MIN_NUM;
     // Initialize Scanner for user input.
     final Scanner scanner = new Scanner(System.in);
